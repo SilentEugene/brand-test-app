@@ -4,6 +4,7 @@ namespace backend\models;
 
 use Yii;
 use yii\helpers\Inflector;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "product".
@@ -18,6 +19,8 @@ use yii\helpers\Inflector;
  */
 class Product extends \yii\db\ActiveRecord
 {
+    public ?UploadedFile $imageFile;
+    
     /**
      * {@inheritdoc}
      */
@@ -40,6 +43,7 @@ class Product extends \yii\db\ActiveRecord
                 return Inflector::slug($model->name);
             }],
             [['url'], 'unique'],
+            [['imageFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
         ];
     }
 
@@ -57,5 +61,17 @@ class Product extends \yii\db\ActiveRecord
             'description' => 'Description',
             'photo' => 'Photo',
         ];
+    }
+
+    public function upload()
+    {
+        if ($this->validate()) {
+            $imagePath = '/images/' . $this->url . '.' . $this->imageFile->extension;
+            $this->imageFile->saveAs(Yii::getAlias('@webroot') . $imagePath);
+            $this->photo = $imagePath;
+            return true;
+        } else {
+            return false;
+        }
     }
 }
