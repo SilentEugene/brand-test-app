@@ -2,18 +2,16 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\Product */
-/* @var $mods backend\models\Mod */
+/* @var $model backend\models\Mod */
 
-$this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Products', 'url' => ['index']];
+$this->title = $model->id;
+$this->params['breadcrumbs'][] = ['label' => 'Mods', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="product-view">
+<div class="mod-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -31,23 +29,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'name',
-            'price',
-            'old_price',
-            'description:ntext',
-            'photo:image',
+            'mod_name',
+            //'product_id',
         ],
     ]) ?>
-
-    <p>
-        <?= Html::a('Create Mod', ['mod/create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
-    <?= GridView::widget([
-        'dataProvider' => $mods,
-        'columns' => [
-            'mod_name',
-        ],
-    ]); ?>
 
 </div>
