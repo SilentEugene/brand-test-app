@@ -2,10 +2,10 @@
 
 namespace backend\controllers;
 
-use backend\models\ModSearch;
 use Yii;
-use backend\models\Product;
-use backend\models\ProductSearch;
+use common\models\ModSearch;
+use common\models\Product;
+use common\models\ProductSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\UploadedFile;

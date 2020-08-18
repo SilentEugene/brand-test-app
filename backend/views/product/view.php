@@ -5,8 +5,8 @@ use yii\widgets\DetailView;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\Product */
-/* @var $mods backend\models\Mod */
+/* @var $model common\models\Product */
+/* @var $mods common\models\Mod */
 
 $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Products', 'url' => ['index']];

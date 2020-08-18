@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\Mod */
+/* @var $model common\models\Mod */
 
 $this->title = 'Update Mod: ' . $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Mods', 'url' => ['index']];
