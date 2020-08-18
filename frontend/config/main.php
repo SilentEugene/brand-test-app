@@ -36,14 +36,16 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '' => 'product/index',
+                'product' => 'product/index',
+                'product/<url>' => 'product/view-product',
+                'product/<url>/<id:\d+>' => 'product/view-mod',
             ],
         ],
-        */
     ],
     'params' => $params,
 ];
