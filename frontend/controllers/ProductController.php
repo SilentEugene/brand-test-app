@@ -35,7 +35,6 @@ class ProductController extends \yii\web\Controller
         $product = $this->findProduct($url);
         $modSearchModel = new ModSearch();
         $mods = $modSearchModel->search(['ModSearch' => ['product_id' => $product->id]]);
-        
         return $this->render('view-product', [
             'model' => $product,
             'mods' => $mods
@@ -44,7 +43,6 @@ class ProductController extends \yii\web\Controller
 
     protected function findProduct($url)
     {
-        Yii::info($url);
         if (($model = Product::findOne(['url' => $url])) !== null) {
             $model->photo = '' . $model->photo;
             return $model;

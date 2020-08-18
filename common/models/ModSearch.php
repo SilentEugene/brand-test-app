@@ -2,7 +2,6 @@
 
 namespace common\models;
 
-use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use common\models\Mod;
@@ -64,8 +63,6 @@ class ModSearch extends Mod
         ]);
 
         $query->andFilterWhere(['like', 'mod_name', $this->mod_name]);
-        Yii::info($query);
-        Yii::info($this->attributes);
         return $dataProvider;
     }
 }
