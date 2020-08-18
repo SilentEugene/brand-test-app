@@ -47,6 +47,14 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $mods,
         'columns' => [
             'mod_name',
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'buttons' => [
+                    'view' => function ($url, $model, $key) {
+                        return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', Yii::getAlias('@mod') . '/' . $model->id);
+                    },
+                ]
+            ],
         ],
     ]); ?>
 

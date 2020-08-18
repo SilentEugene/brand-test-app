@@ -12,6 +12,9 @@ return [
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
     'modules' => [],
+    'aliases' => [
+        '@mod' => '/mod'
+    ],
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
@@ -37,14 +40,20 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '' => 'product/index',
+                'product' => 'product/index',
+                'product/<id:\d+>' => 'product/view',  
+                'product/update/<id:\d+>' => 'product/update',  
+                'product/delete/<id:\d+>' => 'product/delete',
+                'mod/<id:\d+>' => 'mod/view',  
+                'mod/update/<id:\d+>' => 'mod/update',  
+                'mod/delete/<id:\d+>' => 'mod/delete',  
             ],
         ],
-        */
     ],
     'params' => $params,
 ];

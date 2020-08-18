@@ -65,6 +65,9 @@ class Product extends \yii\db\ActiveRecord
 
     public function upload()
     {
+        if (!$this->imageFile) {
+            return true;
+        }
         if ($this->validate()) {
             $imagePath = '/images/' . $this->url . '.' . $this->imageFile->extension;
             $this->imageFile->saveAs(Yii::getAlias('@webroot') . $imagePath);
