@@ -81,9 +81,15 @@ class ProductController extends Controller
             }
         }
 
-        return $this->render('create', [
+        $param = [
             'model' => $model,
-        ]);
+        ];
+        if (isset($model->errors['url'])) {
+            $param['error'] = $model->errors['url'][0];
+        }
+
+
+        return $this->render('create', $param);
     }
 
     /**
