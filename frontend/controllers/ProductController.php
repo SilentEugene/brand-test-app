@@ -44,7 +44,6 @@ class ProductController extends \yii\web\Controller
     protected function findProduct($url)
     {
         if (($model = Product::findOne(['url' => $url])) !== null) {
-            $model->photo = '' . $model->photo;
             return $model;
         }
 
