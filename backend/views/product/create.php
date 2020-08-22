@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 $message = '';
 
 if (!empty($error)) {
-    $msg = '<div class="alert alert-danger">' . nl2br(Html::encode($error)) . '</div>';
+    $message = '<div class="alert alert-danger">' . nl2br(Html::encode($error)) . '</div>';
 }
 
 ?>
@@ -21,7 +21,7 @@ if (!empty($error)) {
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <?= $msg ?>
+    <?= $message ?>
 
     <?= $this->render('_form', [
         'model' => $model,
