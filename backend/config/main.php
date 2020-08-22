@@ -42,6 +42,7 @@ return [
             'showScriptName' => false,
             'rules' => [
                 '' => 'product/index',
+                '/login' => 'site/login',
                 'product' => 'product/index',
                 'product/<id:\d+>' => 'product/view',  
                 'product/update/<id:\d+>' => 'product/update',  
