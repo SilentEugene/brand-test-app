@@ -4,7 +4,6 @@ namespace common\models;
 
 use Yii;
 use yii\helpers\Inflector;
-use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "product".
@@ -19,7 +18,7 @@ use yii\web\UploadedFile;
  */
 class Product extends \yii\db\ActiveRecord
 {
-    public ?UploadedFile $imageFile;
+    public $imageFile;
     
     /**
      * {@inheritdoc}
