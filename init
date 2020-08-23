@@ -65,6 +65,11 @@ if (!is_dir($rootPath)) {
 
 echo "\n  Start initialization ...\n\n";
 
+// create directory for upload images
+if (!file_exists('backend/web/images')) {
+    mkdir('backend/web/images', 0777, true);
+}
+
 $files = getFileList($rootPath);
 if (isset($env['skipFiles'])) {
     $skipFiles = $env['skipFiles'];
