@@ -4,9 +4,9 @@ namespace frontend\controllers;
 
 use Yii;
 use common\models\Mod;
-use common\models\ModSearch;
 use common\models\Product;
 use common\models\ProductSearch;
+use yii\data\ActiveDataProvider;
 use yii\web\NotFoundHttpException;
 
 class ProductController extends \yii\web\Controller
@@ -33,11 +33,12 @@ class ProductController extends \yii\web\Controller
     public function actionViewProduct(string $url)
     {
         $product = $this->findProduct($url);
-        $modSearchModel = new ModSearch();
-        $mods = $modSearchModel->search(['ModSearch' => ['product_id' => $product->id]]);
+        
         return $this->render('view-product', [
             'model' => $product,
-            'mods' => $mods
+            'mods' => new ActiveDataProvider([
+                'query' => $product->getModifications()
+            ])
         ]);
     }
 

@@ -3,9 +3,9 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\ModSearch;
 use common\models\Product;
 use common\models\ProductSearch;
+use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\UploadedFile;
@@ -69,12 +69,13 @@ class ProductController extends Controller
      */
     public function actionView($id)
     {
-        $modSearchModel = new ModSearch();
-        $mods = $modSearchModel->search(['ModSearch' => ['product_id' => $id]]);
-        
+        $model = $this->findModel($id);
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
-            'mods' => $mods
+            'model' => $model,
+            'mods' => new ActiveDataProvider([
+                'query' => $model->getModifications()
+            ])
         ]);
     }
 

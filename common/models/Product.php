@@ -76,4 +76,9 @@ class Product extends \yii\db\ActiveRecord
             return false;
         }
     }
+
+    public function getModifications()
+    {
+        return $this->hasMany(Mod::class, ['product_id' => 'id']);
+    }
 }
