@@ -1,4 +1,5 @@
 <?php
+
 $params = array_merge(
     require __DIR__ . '/../../common/config/params.php',
     require __DIR__ . '/../../common/config/params-local.php',
@@ -43,13 +44,14 @@ return [
             'rules' => [
                 '' => 'product/index',
                 '/login' => 'site/login',
+                '/logout' => 'site/logout',
                 'product' => 'product/index',
-                'product/<id:\d+>' => 'product/view',  
-                'product/update/<id:\d+>' => 'product/update',  
+                'product/<id:\d+>' => 'product/view',
+                'product/update/<id:\d+>' => 'product/update',
                 'product/delete/<id:\d+>' => 'product/delete',
-                'mod/<id:\d+>' => 'mod/view',  
-                'mod/update/<id:\d+>' => 'mod/update',  
-                'mod/delete/<id:\d+>' => 'mod/delete',  
+                'mod/<id:\d+>' => 'mod/view',
+                'mod/update/<id:\d+>' => 'mod/update',
+                'mod/delete/<id:\d+>' => 'mod/delete',
             ],
         ],
     ],
